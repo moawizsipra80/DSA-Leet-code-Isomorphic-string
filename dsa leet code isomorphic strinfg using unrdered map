@@ -1,0 +1,38 @@
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+        if(s.length()==t.length()){
+        unordered_map<char,char>result;
+        unordered_map<char,char>umap;
+        for(int i=0;i<s.length();i++)
+        {
+        if(result.find(s[i])==result.end()){
+            result[s[i]]=t[i]; //ham yahan par map kar rahehan isi lia han key value ka thoorugh mapping karainge na keh insertion aur key value ka syntax result[s[i]]=t[i] is tarhan likha jata ha 
+
+        }
+        else{
+            if(result.find(s[i])!=result.end())
+            
+            {
+                if(result[s[i]]!=t[i])
+            return false;
+            }
+        
+        }
+        if(umap.find(t[i])==umap.end()){
+                umap[t[i]]=s[i];
+            }
+            else{
+                if(umap.find(t[i])!=umap.end())
+                {
+                    if(umap[t[i]]!=s[i])
+                    return false;
+                }
+            }
+         
+        }
+
+        }
+        return true;
+    }
+};
